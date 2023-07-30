@@ -1,52 +1,43 @@
-# Polygon-Advanced-Module-1
+# Polygon Module-1
 
-This is the first project in Polygon-Advance, in this project, I was tasked to deploy an NFT collection on the Ethereum blockchain, Map the collection to Polygon, and Transfer assets over via the Polygon Bridge.
+This project have the creation of ERC721 compliant NFT contract called `RishiContract` and the deployment of this contract on the `Goerli` test network. In this project basically we have to deploy some NFT's on the etherium blockchain, map collection to polygon and transfer assets via polygon bridge.
+
+## Contract
+
+This smart contract is written in Solidity programming language and is named as `RishiContract.sol`. This contract is inherited/imported from the OpenZeppelin's ERC721 contract. This contract basically allow user for minting of NFTs and stores metadata URIs for each token. In this contract there is also an mintnft function for minting tokens.
+
 
 ## Getting Started
 
+### Setup
+
+Make sure to rename ".env.example" to ".env" and provide your wallet private key to this .env file(we use this file to secure our private key) i.e. "PRIVATE_KEY= 'your wallet private key'".
+
 ### Executing program
 
-Download the codes by downloading the entire repository which will give you access to other contents of the repository. Navigate to the Poly_Proof project directory,  run:
-
-```shell
-
- npm install
-
+Step 1- Clone the required repository by using this command:
+```
+git clone <github url>
 ```
 
-After installing the dependencies, run the test file by using the following command:
-
-```shell
-npx hardhat test
+Step 2- Install the npm:
+```
+npm install
 ```
 
-### Deploying the ERC721 Contract
-
-Before deploying, make sure to rename ".env.example" to ".env" and provide your wallet private key where required i.e. "PRIVATE_KEY= 'your wallet private key'". Run the following command to deploy the ERC721 contract to the Goerli Ethereum Testnet:
-
-``` shell
-npx hardhat run scripts/deploy.js --network goerli 
+Step 3- Deploy contract on the georli etherium testnet:
 ```
-## NOTE:
-After deploying the address will generate. So, copy that address into `contarctAddress.js`(stored in metadata folder) and also in `batchMint.js`(stored in scripts folder)
+npx hardhat run scripts/deploy.js --network goerli
+```
+Here we get an address after deploy, we have to paste it in the `contractAddress.js` , `batchMint.js` and  `approveDeposit.js` files.
 
- 
-The script will deploy the contract 
-### Batch Mint NFTs
-
-Run the following command to batch-mint NFTs using the deployed ERC721 contract:
-
-``` shell
+Step 4- Now we have to mint NFT's on our address by using the `batchMint.js` script by using this command:
+```
 npx hardhat run scripts/batchMint.js --network goerli
 ```
 
-The script will mint the specified number of NFTs and assign them to your address.
-
-### Approve and Deposit NFTs to Polygon Mumbai
-
-Run the following commands to approve and deposit the minted NFTs from Ethereum to the Polygon Mumbai network using the FxPortal Bridge:
-
-```shell
+Step 5- Finally we have to deposit and approve the minted NFT's from Ethereum to Polygon Mumbai network using the FxPortal Bridge by using this command:
+```
 npx hardhat run scripts/approveDeposit.js --network goerli
 ```
 
