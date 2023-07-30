@@ -41,13 +41,14 @@ Step 5- Finally we have to deposit and approve the minted NFT's from Ethereum to
 npx hardhat run scripts/approveDeposit.js --network goerli
 ```
 
+Step 6- Now check your execution details on `etherscan` by pasting that deployed address in the search menu.
 
 
 ## Author
 
-[Tushar Gangurde](https://github.com/Tushar282002)
+[Rishi Kumar Singh](https://github.com/rishi2806)
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
-You can make a copy of the project to use for your own purposes.
+This project is licensed under the [MIT License].
+
